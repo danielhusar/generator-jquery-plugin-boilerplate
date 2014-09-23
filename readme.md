@@ -2,6 +2,7 @@
 
 > Scaffold out a [generator-jquery-plugin-boilerplate](https://github.com/danielhusar/generator-jquery-plugin-boilerplate)
 
+WIP
 
 ## Install
 
