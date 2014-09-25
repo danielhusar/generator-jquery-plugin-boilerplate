@@ -24,10 +24,6 @@ module.exports = function () {
     this.name = this.user.git.username;
     this.email = this.user.git.email;
 
-
-
-    fs.writeFileSync(path.join(this.sourceRoot(), '.gitignore'), 'node_modules\n');
-
     this.template('_package.json', 'package.json');
     this.template('_Readme.md', 'readme.md');
     this.template('.editorconfig');
@@ -39,6 +35,8 @@ module.exports = function () {
     this.template('test/index.html');
     this.template('test/spec.js');
     this.template('src/name.js', 'src/' + this.camelname + '.js');
+
+    fs.writeFileSync(path.join(this.sourceRoot(), '.gitignore'), 'node_modules\n');
 
     cb();
   }.bind(this));
