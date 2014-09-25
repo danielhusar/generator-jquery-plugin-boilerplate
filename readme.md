@@ -16,7 +16,7 @@ $ npm install --global generator-jquery-plugin-boilerplate
 Run it with [yo](https://github.com/yeoman/yo):
 
 ```sh
-$ yo generator-jquery-plugin-boilerplate
+$ yo jquery-plugin-boilerplate
 ```
 
 
