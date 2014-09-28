@@ -1,6 +1,6 @@
 {
   "name": "generator-jquery-plugin-boilerplate",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Scaffold out a jquery plugin boilerplate",
   "license": "MIT",
   "repository": "danielhusar/generator-jquery-plugin-boilerplate",
