@@ -21,9 +21,10 @@ module.exports = function () {
     this.camelName = this._.camelize(props.pluginName);
     this.slugName = this._.slugify(props.pluginName);
     this.githubUserName = props.githubUserName;
-    this.name = this.user.git.username;
-    this.email = this.user.git.email;
+    this.name = this.user.git.name();
+    this.email = this.user.git.email();
 
+    this.template('_bower.json', 'bower.json');
     this.template('_package.json', 'package.json');
     this.template('_Readme.md', 'readme.md');
     this.template('.editorconfig');
@@ -34,10 +35,10 @@ module.exports = function () {
     this.template('gulpfile.js');
     this.template('test/index.html');
     this.template('test/spec.js');
-    this.template('src/name.js', 'src/' + this.camelname + '.js');
+    this.template('src/name.js', 'src/' + this.camelName + '.js');
 
-    fs.writeFileSync(path.join(this.sourceRoot(), '.gitignore'), 'node_modules\n');
-
+    this.npmInstall();
     cb();
+
   }.bind(this));
 };
