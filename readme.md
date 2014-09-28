@@ -3,7 +3,8 @@
 > Scaffold out a [generator-jquery-plugin-boilerplate](https://github.com/danielhusar/generator-jquery-plugin-boilerplate)
 
 If you want to run mocha tests from cli you will need to install phantom.js.
-Gulp is used to link and minify your plugin.
+
+Gulp is used to lint and minify your plugin.
 
 ## Install
 
