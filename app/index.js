@@ -6,21 +6,21 @@ module.exports = function () {
   var cb = this.async();
 
   this.prompt([{
-    name: 'pluginname',
+    name: 'pluginName',
     message: 'What do you want to name your jquery plugin?',
     default: this.appname.replace(/\s/g, '-')
   }, {
-    name: 'githubusername',
+    name: 'githubUserName',
     message: 'What is your GitHub username?',
     validate: function (val) {
       return val.length > 0 ? true : 'You have to provide a username';
     }
   }], function (props) {
 
-    this.pluginname = props.pluginname;
-    this.camelname = this._.camelize(props.pluginname);
-    this.slugname = this._.slugify(props.pluginname);
-    this.githubusername = props.githubusername;
+    this.pluginName = props.pluginName;
+    this.camelName = this._.camelize(props.pluginName);
+    this.slugName = this._.slugify(props.pluginName);
+    this.githubUserName = props.githubUserName;
     this.name = this.user.git.username;
     this.email = this.user.git.email;
 
