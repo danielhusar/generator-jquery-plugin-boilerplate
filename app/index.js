@@ -48,7 +48,9 @@ module.exports = function () {
       this.template('src/name.css', 'src/' + this.camelName + '.css');
     }
 
-    this.npmInstall();
+    if (process.env.npm_package_scripts_test === undefined) {
+      this.npmInstall();
+    }
     cb();
 
   }.bind(this));
