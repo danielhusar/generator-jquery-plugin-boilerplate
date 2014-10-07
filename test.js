@@ -19,6 +19,7 @@ describe('generator', function () {
   it('generates expected files', function (cb) {
     var expected = [
       'src/test.js',
+      'src/test.css',
       'test/index.html',
       'test/spec.js',
       'demo.html',
@@ -34,7 +35,8 @@ describe('generator', function () {
 
     helpers.mockPrompt(this.generator, {
       pluginName: 'test',
-      githubUserName: 'test'
+      githubUserName: 'test',
+      pluginCss: 'Yes'
     });
 
     this.generator.run({}, function () {

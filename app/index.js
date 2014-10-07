@@ -1,6 +1,4 @@
 'use strict';
-var path = require('path');
-var fs = require('fs');
 
 module.exports = function () {
   var cb = this.async();
@@ -9,7 +7,15 @@ module.exports = function () {
     name: 'pluginName',
     message: 'What do you want to name your jquery plugin?',
     default: this.appname.replace(/\s/g, '-')
-  }, {
+  },
+  {
+    name: 'pluginCss',
+    message: 'Will your plugin have also css?',
+    type: 'list',
+    choices: ['Yes', 'No'],
+    default: 'No'
+  },
+  {
     name: 'githubUserName',
     message: 'What is your GitHub username?',
     validate: function (val) {
@@ -18,6 +24,7 @@ module.exports = function () {
   }], function (props) {
 
     this.pluginName = props.pluginName;
+    this.pluginCss = props.pluginCss;
     this.camelName = this._.camelize(props.pluginName);
     this.slugName = this._.slugify(props.pluginName);
     this.githubUserName = props.githubUserName;
@@ -36,6 +43,10 @@ module.exports = function () {
     this.template('test/index.html');
     this.template('test/spec.js');
     this.template('src/name.js', 'src/' + this.camelName + '.js');
+
+    if (this.pluginCss === 'Yes') {
+      this.template('src/name.css', 'src/' + this.camelName + '.css');
+    }
 
     this.npmInstall();
     cb();
