@@ -1,5 +1,8 @@
 'use strict';
 
+var fs = require('fs');
+var path = require('path');
+
 module.exports = function () {
   var cb = this.async();
 
@@ -30,6 +33,8 @@ module.exports = function () {
     this.githubUserName = props.githubUserName;
     this.name = this.user.git.name();
     this.email = this.user.git.email();
+
+    fs.writeFileSync(path.join(this.sourceRoot(), '.gitignore'), 'node_modules\n');
 
     this.template('_bower.json', 'bower.json');
     this.template('_package.json', 'package.json');
